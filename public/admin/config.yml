@@ -28,7 +28,7 @@ collections:
   - name: tags
     label: Tags
     label_singular: Tag
-    folder: /content/tags
+    folder: /src/content/tags
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: richtext }
@@ -36,7 +36,7 @@ collections:
   - name: proxectos
     label: Proxectos
     label_singular: Proxecto
-    folder: /content/proxectos
+    folder: /src/content/proxectos
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Resumo, name: resumo, widget: richtext }
