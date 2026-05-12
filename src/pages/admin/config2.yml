@@ -1,0 +1,40 @@
+local_backend: true # Allow to edit files locally
+
+backend:
+    name: github
+    repo: majesticostudio/astro-sveltia-cms
+    branch: main
+    site_domain: astro-sveltia-cms.vercel.app
+    base_url: https://astro-sveltia-cms.vercel.app
+    auth_endpoint: oauth
+
+media_folder: src/assets/images
+public_folder: "@assets/images"
+
+collections:
+    - name: "post" # Used in routes, e.g., /admin/collections/blog
+      label: "Post" # Used in the UI
+      folder: "src/content/post" # The path to the folder where the documents are stored
+      create: true # Allow users to create new documents in this collection
+      media_folder: /src/assets/images/post # Specific media folder for the collection
+      public_folder: "@assets/images/post" # Specific public assets folder for the collection
+      preview_path_date_field: "date"
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+      fields: # The fields for each document, usually in front matter
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Featured Image", name: "img", widget: "image" }
+          - { label: "Body", name: "body", widget: "markdown" }
+    - name: "authors" # Used in routes, e.g., /admin/collections/blog
+      label: "Authors" # Used in the UI
+      folder: "src/content/authors" # The path to the folder where the documents are stored
+      create: true # Allow users to create new documents in this collection
+      media_folder: /src/assets/images/authors # Specific media folder for the collection
+      public_folder: "@assets/images/authors" # Specific public assets folder for the collection
+      preview_path_date_field: "date"
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+      fields: # The fields for each document, usually in front matter
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Photo", name: "img", widget: "image" }
+          - { label: "Description", name: "body", widget: "markdown", required: false }
